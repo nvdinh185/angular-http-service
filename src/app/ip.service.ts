@@ -12,4 +12,8 @@ export class IpService {
             .then(res => res.json())
             .then(resJson => resJson.ip);
     }
+
+    getIpObservable() {
+        return this.http.get("http://ip.jsontest.com/")
+    }
 }

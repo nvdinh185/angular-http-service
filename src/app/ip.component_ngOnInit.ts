@@ -6,6 +6,8 @@ import { IpService } from "./ip.service";
   template: `
           <p>This is ngOnInit Component</p>
           <h4>{{ ip }}</h4>
+          <button (click)=onGetIp()>Get IP Observable</button>
+          <button (click)=onTest()>Get Test</button>
     `
 })
 export class IpComponentngOnInit implements OnInit {
@@ -14,7 +16,21 @@ export class IpComponentngOnInit implements OnInit {
 
   ngOnInit() {
     this.ipService.getIp()
-      .then(ip => this.ip = ip)
+      .then(ip => { this.ip = ip; console.log(ip) })
       .catch(err => console.log(err));
+  }
+
+  async onTest() {
+    let res = await this.ipService.getIp()
+    console.log(res);
+  }
+
+  onGetIp() {
+    this.ipService.getIpObservable()
+      .subscribe(ip => {
+        console.log(ip.json())
+      }, (err) => {
+        console.log(err)
+      });
   }
 }

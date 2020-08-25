@@ -6,7 +6,8 @@ import { Http } from "@angular/http";
     template: `
                 <p>This is ip component</p>
                 <h4>{{ ip }}</h4>
-    `,
+                <button (click)=onGetIp()>Get IP</button>
+            `,
 })
 export class IpComponent {
     ip: String;
@@ -16,5 +17,14 @@ export class IpComponent {
             .then(res => res.json())
             .then(resJson => this.ip = resJson.ip)
             .catch(err => console.log(err));
+    }
+
+    onGetIp() {
+        this.http.get("http://ip.jsontest.com/")
+            .subscribe(weather => {
+                console.log(weather.json())
+            }, (err) => {
+                console.log(err)
+            });
     }
 }
