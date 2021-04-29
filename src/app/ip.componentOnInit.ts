@@ -10,7 +10,7 @@ import { IpService } from "./ip.service";
           <button (click)=onTest()>Get Test</button>
     `
 })
-export class IpComponentngOnInit implements OnInit {
+export class IpComponentOnInit implements OnInit {
   ip: String;
   constructor(private ipService: IpService) { }
 
@@ -21,16 +21,16 @@ export class IpComponentngOnInit implements OnInit {
   }
 
   async onTest() {
-    let res = await this.ipService.getIp()
-    console.log(res);
+    let ip = await this.ipService.getIp()
+    console.log(ip);
   }
 
   onGetIp() {
     this.ipService.getIpObservable()
       .subscribe(ip => {
-        console.log(ip.json())
+        console.log(ip.json());
       }, (err) => {
-        console.log(err)
+        console.log(err);
       });
   }
 }

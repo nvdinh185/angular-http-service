@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IpComponent } from './ip.component';
-import { IpComponentService } from './ip.component_service';
-import { IpComponentngOnInit } from './ip.component_ngOnInit';
+import { IpComponentService } from './ip.componentService';
+import { IpComponentOnInit } from './ip.componentOnInit';
 import { IpService } from './ip.service';
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherService } from './weather/weather.service'
@@ -18,7 +18,7 @@ import { WeatherService } from './weather/weather.service'
     AppComponent,
     IpComponent,
     IpComponentService,
-    IpComponentngOnInit,
+    IpComponentOnInit,
     WeatherComponent,
   ],
   imports: [

@@ -21,8 +21,8 @@ export class IpComponent {
 
     onGetIp() {
         this.http.get("http://ip.jsontest.com/")
-            .subscribe(weather => {
-                console.log(weather.json())
+            .subscribe(ip => {
+                console.log(ip.json());
             }, (err) => {
                 console.log(err)
             });
